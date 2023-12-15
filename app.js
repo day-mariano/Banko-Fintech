@@ -71,9 +71,9 @@ class ContaPoupanca extends Conta {
   constructor (nome) {
     super(nome);
   }
-
+  
   investir = () => {
-    this.adicionar(this.saldo * ( 1 + ContaPoupanca.#juros))
+    this.adicionar(this.saldo *  ContaPoupanca.#juros)
   }
 }
 
