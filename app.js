@@ -36,6 +36,7 @@ class Conta {
     this.saldo = 0;
   }
 
+  // Polimorfismo (esses métodos são usados em diferentes operações)
   obterSaldo = (valor) => {
     console.log(`${this.nome}, seu saldo atual é R$${this.saldo}.`);
   }
@@ -55,45 +56,47 @@ class Conta {
   }
 }
 
-// herança: cria ua classe a partir de outra classe
+// Herança (herda de Conta: nome, saldo, obterSaldo(), adicionar() e remover())
 class ContaCorrente extends Conta {
   constructor (nome) {
     super(nome);
     this.taxa = 10
   }
+  //Abstração (abstraí função que faz parte da operacão)
   cobrarTaxa = () => {
     this.remover(this.taxa)
   }
 }
-
+// Encapsulamento
 class ContaPoupanca extends Conta {
   static #juros = 0.01
   constructor (nome) {
     super(nome);
   }
-  
+
   investir = () => {
     this.adicionar(this.saldo *  ContaPoupanca.#juros)
   }
 }
 
+// Encapsulamento (protege o numero do cliente)
 class Cliente {
   constructor (nome, numero) {
     this.nome = nome;
-    this.numero = numero
-    // this.conta = new Conta(this.nome)
+    this.numero = numero;
     this.contacorrente = new ContaCorrente(this.nome);
     this.contapoupanca = new ContaPoupanca(this.nome);
   }
-  // OK
+  
   saldoTotal = () => {
-    console.log(this.contacorrente.saldo + this.contapoupanca.saldo)
+    return (`Seu saldo atual é R$${this.contacorrente.saldo + this.contapoupanca.saldo}.`);
+    // return this.contacorrente.saldo + this.contapoupanca.saldo
   }
-  //OK
+
   mostrarCliente = () => {
-    console.log(this.nome, this.numero)
+    console.log(this.nome, this.numero, this.saldoTotal())
   }
 }
-const cliente1 = new Cliente("Dayana", "12345")
+const cliente1 = new Cliente("Dayana", 12345)
 cliente1.mostrarCliente()
-cliente1.saldoTotal()
+// cliente1.saldoTotal()
