@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="app.js"></script>
   <link rel="icon" href="banco.png" type="image/x-icon">
-  <title>Banko</title>
+  <link rel="stylesheet" href="style.css">
+  <title>Banko - Cadastro</title>
 </head>
 <body>
   <header>
     <div class="logo">
       <img src="banco.png">
-      <h1>Banko - Fintech</h1>
+      <h1>Banko</h1>
     </div>
     <nav>
       <a href="">Cadastrar</a>
@@ -20,9 +21,16 @@
       <!-- <a href="http://">Contat</a> -->
     </nav>
   </header>
-  <div>
-    <h2>Banko</h2>
-    <p>Sua Revolução Financeira. Simples. Moderno. Seu.</p>
+  <section class="hero">
+    <div class="divHero">
+      <h2>Banko Fintech ✨</h2>
+      <p> Desbloqueie seu potencial financeiro com facilidade e inovação. Uma experiência bancária que se adapta a você. </p>
+    </div>
+    <img src="Crypto portfolio-amico (1).svg" id="fotoHero">
+  </section>
+  <div class="main">
+    <h2>Cadastro</h2>
+    <p>Cadastre-se agora e tenha uma experiência bancária brilhante</p>
     <form method="post" action="https://658092233dfdd1b11c41c3da.mockapi.io/banko/clientes" target="_blank">
       <label for="name">Nome
         <input type="text" id="name" name="name" placeholder="Seu nome">
@@ -30,10 +38,14 @@
       <label for="cpf">CPF
         <input type="number" id="cpf" name="cpf" placeholder="Seu CPF">
       </label>
-      <input type="submit" value="Submit" id="buttonSubmit">
-        <a href="services.html"></a>
-      </input>
+      <input type="submit" value="Cadastrar" class="buttonForm">
+    </input>
+    <p>Acesse nossos serviços 💰</p>
+    <a href="services.html" class="buttonForm">Serviços</a>
     </form>
   </div>
+  <footer>
+    <p>Created by Dayana Mariano© 2023</p>
+  </footer>
 </body>
 </html>
