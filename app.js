@@ -81,9 +81,10 @@ class ContaPoupanca extends Conta {
 
 // Encapsulamento (protege o numero do cliente)
 class Cliente {
-  constructor (nome, numero) {
+  constructor (nome, cpf) {
     this.nome = nome;
-    this.numero = numero;
+    this.cpf = cpf;
+    this.numero = Math.floor(Math.random() * 100);
     this.contacorrente = new ContaCorrente(this.nome);
     this.contapoupanca = new ContaPoupanca(this.nome);
   }
@@ -94,9 +95,9 @@ class Cliente {
   }
 
   mostrarCliente = () => {
-    console.log(this.nome, this.numero, this.saldoTotal())
+    console.log(this.nome, this.cpf, this.numero, this.saldoTotal())
   }
 }
-const cliente1 = new Cliente("Dayana", 12345)
+const cliente1 = new Cliente("Dayana", "111.111.111-11")
 cliente1.mostrarCliente()
 // cliente1.saldoTotal()
