@@ -81,10 +81,11 @@ class ContaPoupanca extends Conta {
 
 // Encapsulamento (protege o numero do cliente)
 class Cliente {
-  constructor (nome, cpf) {
+  constructor (nome, cpf, numero) {
     this.nome = nome;
     this.cpf = cpf;
-    this.numero = Math.floor(Math.random() * 100);
+    this.numero = numero
+    // this.numero = Math.floor(Math.random() * 100);
     this.contacorrente = new ContaCorrente(this.nome);
     this.contapoupanca = new ContaPoupanca(this.nome);
   }
@@ -95,9 +96,59 @@ class Cliente {
   }
 
   mostrarCliente = () => {
-    console.log(this.nome, this.cpf, this.numero, this.saldoTotal())
+    console.log(`Nome: ${this.nome}, CPF: ${this.cpf}, Número: ${this.numero}. ${this.saldoTotal()}`)
   }
 }
-const cliente1 = new Cliente("Dayana", "111.111.111-11")
-cliente1.mostrarCliente()
-// cliente1.saldoTotal()
+
+// function getCliente () {
+  // const inputName = document.getElementById("name").value;
+  // const inputCPF = document.getElementById("cpf").value;
+
+  // const options = {
+  //   method: 'GET',
+  //   mode: 'cors',
+  //   cache: 'default'
+  // }
+
+  // fetch(`https://658092233dfdd1b11c41c3da.mockapi.io/banko/clientes/:id`, options)
+  // .then(response =>{response.json()
+  //   .then( data => showData(data))
+  //   document.getElementById("name").innerText = ""
+  //   document.getElementById("cpf").innerText = ""
+  // })
+  // .catch(e => console.log('Ocorreu um erro:'+ e.message))
+
+
+//   const clienteAtual = new Cliente(inputName, inputCPF, numero)
+//  clienteAtual.mostrarCliente()
+// clienteAtual.saldoTotal()
+// }
+
+// const showData = (result) => {
+
+// }
+
+const formCadastro = document.getElementById("formCadastro")
+formCadastro.addEventListener("submit", cadastrar)
+
+function cadastrar(event) {
+  event.preventDefault();
+  console.log('cadastrando');
+
+  const inputName = document.getElementById("name");
+  const inputCPF = document.getElementById("cpf");
+
+  const response = fetch("https://658092233dfdd1b11c41c3da.mockapi.io/banko/clientes", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      name: `${inputName.value}`,
+      cpf: `${inputCPF.value}`
+    })
+  }).then(response => response.json()).then(response => {
+    console.log(response);
+    location.href = "services.html?id="+response.id
+  })
+}

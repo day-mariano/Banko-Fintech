@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="app.js"></script>
+  <script src="app.js" defer></script>
   <link rel="icon" href="banco.png" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
   <title>Banko - Cadastro</title>
@@ -16,8 +16,8 @@
     </div>
     <nav>
       <a href="">Cadastrar</a>
-      <a href="http://" >About</a>
-      <a href="http://">Services</a>
+      <a href="http://">Serviços</a>
+      <a href="http://" >Sobre</a>
       <!-- <a href="http://">Contat</a> -->
     </nav>
   </header>
@@ -31,17 +31,15 @@
   <div class="main">
     <h2>Cadastro</h2>
     <p>Cadastre-se agora e tenha uma experiência bancária brilhante</p>
-    <form method="post" action="https://658092233dfdd1b11c41c3da.mockapi.io/banko/clientes" target="_blank">
+    <form id="formCadastro">
       <label for="name">Nome
-        <input type="text" id="name" name="name" placeholder="Seu nome">
+        <input type="text" id="name" name="name" placeholder="Seu nome" required>
       </label>
       <label for="cpf">CPF
-        <input type="number" id="cpf" name="cpf" placeholder="Seu CPF">
+        <input type="number" id="cpf" name="cpf" placeholder="Seu CPF" required>
       </label>
-      <input type="submit" value="Cadastrar" class="buttonForm">
+      <input type="submit" id="buttonSubmit" value="Cadastrar" class="buttonForm">
     </input>
-    <p>Acesse nossos serviços 💰</p>
-    <a href="services.html" class="buttonForm">Serviços</a>
     </form>
   </div>
   <footer>
