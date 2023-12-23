@@ -45,6 +45,6 @@ Investir saldo da conta poupança
 - JavaScript
 
 ## Deploy:
-Veja no seu navegador: [Banko](https://portfolio-day-mariano.vercel.app/)
+Veja no seu navegador: [Banko](https://banko-fintech.vercel.app/)
 
 ![Preview](preview1.png)
