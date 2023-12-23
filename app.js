@@ -27,9 +27,6 @@
 // ## **Avaliação:**
 // Serás avaliado por tua bravura na aplicação dos encantamentos de POO, pela funcionalidade de teu reino bancário, pela segurança dos cofres do reino e pela magia da interface.
 
-// const numeroConta = 0
-
-
 class Conta {
   constructor (nome) {
     this.nome = nome;
@@ -100,33 +97,8 @@ class Cliente {
   }
 }
 
-// function getCliente () {
-  // const inputName = document.getElementById("name").value;
-  // const inputCPF = document.getElementById("cpf").value;
-
-  // const options = {
-  //   method: 'GET',
-  //   mode: 'cors',
-  //   cache: 'default'
-  // }
-
-  // fetch(`https://658092233dfdd1b11c41c3da.mockapi.io/banko/clientes/:id`, options)
-  // .then(response =>{response.json()
-  //   .then( data => showData(data))
-  //   document.getElementById("name").innerText = ""
-  //   document.getElementById("cpf").innerText = ""
-  // })
-  // .catch(e => console.log('Ocorreu um erro:'+ e.message))
-
-
-//   const clienteAtual = new Cliente(inputName, inputCPF, numero)
-//  clienteAtual.mostrarCliente()
-// clienteAtual.saldoTotal()
-// }
-
-// const showData = (result) => {
-
-// }
+const clientes = [];
+let numero = 0;
 
 const formCadastro = document.getElementById("formCadastro")
 formCadastro.addEventListener("submit", cadastrar)
@@ -134,21 +106,12 @@ formCadastro.addEventListener("submit", cadastrar)
 function cadastrar(event) {
   event.preventDefault();
   console.log('cadastrando');
+  const nome = document.getElementById("name").value;
+  const cpf = document.getElementById("cpf").value;
+  numero++
 
-  const inputName = document.getElementById("name");
-  const inputCPF = document.getElementById("cpf");
+  const cliente1 = new Cliente(nome, cpf, numero)
+  clientes.push(cliente1)
 
-  const response = fetch("https://658092233dfdd1b11c41c3da.mockapi.io/banko/clientes", {
-    method: "post",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      name: `${inputName.value}`,
-      cpf: `${inputCPF.value}`
-    })
-  }).then(response => response.json()).then(response => {
-    console.log(response);
-    location.href = "services.html?id="+response.id
-  })
+  cliente1.mostrarCliente();
 }

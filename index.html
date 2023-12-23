@@ -27,7 +27,7 @@
     </div>
     <img src="Crypto portfolio-amico (1).svg" id="fotoHero">
   </section>
-  <div class="main">
+  <div class="main" id="mainCadastro">
     <h2>Cadastro</h2>
     <p>Cadastre-se agora e tenha uma experiência bancária brilhante</p>
     <form id="formCadastro">
@@ -41,6 +41,50 @@
     </input>
     </form>
   </div>
+
+  <h3>A partir de agora conferir no console as funcionalidades!</h3>
+  <p>Acessar dados do cliente usando o método mostrarCliente()</p>
+  <code>
+    clientes[0].mostrarCliente()
+  </code>
+  <p>Acessar saldo total usando o método saldoTotal()</p>
+  <code>
+    clientes[0].saldoTotal()
+  </code>
+  <p>Acessar saldo da conta corrente</p>
+  <code>
+    clientes[0].contaCorrente.obterSaldo()
+  </code>
+  <p>Depositar na conta corrente, passando um valor</p>
+  <code>
+    clientes[0].contaCorrente.adicionar(100) <br>
+    //Fulano, foi adicionado R$100. Agora seu saldo é R$100.
+  </code>
+  <p>Sacar na conta corrente, , passando um valor</p>
+  <code>
+    clientes[0].contacorrente.remover(20)
+  </code>
+  <p>Pagar taxa do banco com a conta corrente</p>
+  <code>
+    clientes[0].contacorrente.cobrarTaxa()
+  </code>
+  <p>Acessar saldo da conta poupança</p>
+  <code>
+    clientes[0].contapoupanca.obterSaldo()
+  </code>
+  <p>Depositar na conta corrente, passando um valor</p>
+  <code>
+    clientes[0].contapoupanca.adicionar(100)
+  </code>
+  <p>Sacar na conta corrente, passando um valor</p>
+  <code>
+    clientes[0].contapoupanca.remover(10)
+  </code>
+  <p>Investir saldo da conta poupança</p>
+  <code>
+    clientes[0].contapoupanca.investir()
+  </code>
+
   <footer>
     <p>Created by Dayana Mariano© 2023</p>
   </footer>
