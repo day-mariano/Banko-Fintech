@@ -77,41 +77,61 @@ class ContaPoupanca extends Conta {
 }
 
 // Encapsulamento (protege o numero do cliente)
+const divCliente = document.getElementById("divCliente");
 class Cliente {
   constructor (nome, cpf, numero) {
     this.nome = nome;
     this.cpf = cpf;
     this.numero = numero
-    // this.numero = Math.floor(Math.random() * 100);
     this.contacorrente = new ContaCorrente(this.nome);
     this.contapoupanca = new ContaPoupanca(this.nome);
   }
   
   saldoTotal = () => {
+    divCliente.innerHTML += `<p class="resultados">Seu saldo atual é R$${this.contacorrente.saldo + this.contapoupanca.saldo}</p>`
     return (`Seu saldo atual é R$${this.contacorrente.saldo + this.contapoupanca.saldo}.`);
-    // return this.contacorrente.saldo + this.contapoupanca.saldo
   }
 
   mostrarCliente = () => {
-    console.log(`Nome: ${this.nome}, CPF: ${this.cpf}, Número: ${this.numero}. ${this.saldoTotal()}`)
+
+    divCliente.innerHTML += `<p class="resultados" >Nome: ${this.nome}, CPF: ${this.cpf}, Número: ${this.numero}.</p>`
   }
 }
 
 const clientes = [];
 let numero = 0;
 
+var mainCadastro = document.getElementById("mainCadastro")
 const formCadastro = document.getElementById("formCadastro")
 formCadastro.addEventListener("submit", cadastrar)
 
 function cadastrar(event) {
   event.preventDefault();
   console.log('cadastrando');
-  const nome = document.getElementById("name").value;
-  const cpf = document.getElementById("cpf").value;
+  const nome = document.getElementById("name");
+  const cpf = document.getElementById("cpf");
   numero++
 
-  const cliente1 = new Cliente(nome, cpf, numero)
-  clientes.push(cliente1)
+  let cliente1 = new Cliente(nome.value, cpf.value, numero)
+  clientes.push(cliente1);
+  console.log(cliente1);
+  nome.value = ""
+  cpf.value = ""
+  mainCadastro.innerHTML = "Cadastrado!" 
+  return clientes
+}
 
-  cliente1.mostrarCliente();
+const buttonObterCliente = document.getElementById("buttonObterCliente")
+buttonObterCliente.addEventListener("click", mostrar)
+
+function mostrar() {
+  clientes[0].mostrarCliente()
+}
+
+const buttonSaldoTotal = document.getElementById("buttonSaldoTotal")
+buttonSaldoTotal.addEventListener("click", saldo)
+
+function saldo() {
+  clientes[0].saldoTotal()
+  console.log("consultando saldo")
 }
