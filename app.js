@@ -34,13 +34,16 @@ class Conta {
   }
 
   // Polimorfismo (esses métodos são usados em diferentes operações)
-  obterSaldo = (valor) => {
-    console.log(`${this.nome}, seu saldo atual é R$${this.saldo}.`);
+  obterSaldo = () => {
+    // divCorrente.innerHTML += `<p class="resultados">${this.nome}, seu saldo atual é R$${this.saldo}.</p>`
+    const resultadoObterSaldo = `<p class="resultados">${this.nome}, seu saldo atual é R$${this.saldo}.</p>`
+    return(resultadoObterSaldo);
   }
 
   adicionar = (valor) => {
     this.saldo = this.saldo + valor;
-    console.log(`${this.nome}, foi adicionado R$${valor}. Agora seu saldo é R$${this.saldo}.`);
+    const resultadoAdicionar = `<p class="resultados">${this.nome}, foi adicionado R$${valor}. Agora seu saldo é R$${this.saldo}.</p>`
+    return(resultadoAdicionar);
   }
 
   remover = (valor) => {
@@ -78,6 +81,7 @@ class ContaPoupanca extends Conta {
 
 // Encapsulamento (protege o numero do cliente)
 const divCliente = document.getElementById("divCliente");
+const divSaldoTotal = document.getElementById("divSaldoTotal")
 class Cliente {
   constructor (nome, cpf, numero) {
     this.nome = nome;
@@ -88,13 +92,13 @@ class Cliente {
   }
   
   saldoTotal = () => {
-    divCliente.innerHTML += `<p class="resultados">Seu saldo atual é R$${this.contacorrente.saldo + this.contapoupanca.saldo}</p>`
+    divSaldoTotal.innerHTML = `<p class="resultados">Seu saldo atual é R$${this.contacorrente.saldo + this.contapoupanca.saldo}</p>`
     return (`Seu saldo atual é R$${this.contacorrente.saldo + this.contapoupanca.saldo}.`);
   }
 
   mostrarCliente = () => {
-
     divCliente.innerHTML += `<p class="resultados" >Nome: ${this.nome}, CPF: ${this.cpf}, Número: ${this.numero}.</p>`
+    return (`Nome: ${this.nome}, CPF: ${this.cpf}, Número: ${this.numero}.`)
   }
 }
 
@@ -123,15 +127,32 @@ function cadastrar(event) {
 
 const buttonObterCliente = document.getElementById("buttonObterCliente")
 buttonObterCliente.addEventListener("click", mostrar)
-
 function mostrar() {
   clientes[0].mostrarCliente()
 }
 
 const buttonSaldoTotal = document.getElementById("buttonSaldoTotal")
 buttonSaldoTotal.addEventListener("click", saldo)
-
 function saldo() {
   clientes[0].saldoTotal()
   console.log("consultando saldo")
+}
+
+const divCorrente = document.getElementById("divCorrente")
+
+const buttonSaldoCorrente = document.getElementById("buttonSaldoCorrente")
+buttonSaldoCorrente.addEventListener("click", saldoCorrente)
+function saldoCorrente() {
+  divCorrente.innerHTML += clientes[0].contacorrente.obterSaldo()
+  console.log("consultando saldo da conta corrente")
+}
+
+const buttonDepositarCorrente = document.getElementById("buttonDepositarCorrente")
+buttonDepositarCorrente.addEventListener("click", depositar)
+function depositar() {
+  let valorDeposito = Number(prompt("Quanto deseja depositar?"))
+  if (valorDeposito) {
+    divCorrente.innerHTML = clientes[0].contacorrente.adicionar(valorDeposito)
+    console.log("depositando")
+  }
 }
