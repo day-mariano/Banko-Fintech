@@ -64,13 +64,11 @@ class ContaPoupanca extends Conta {
   }
 
   investir = () => {
-    this.adicionar(this.saldo *  ContaPoupanca.#juros)
+    this.adicionar(this.saldo * ContaPoupanca.#juros)
   }
 }
 
 // Encapsulamento (protege o numero do cliente)
-const divCliente = document.getElementById("divCliente");
-const divSaldoTotal = document.getElementById("divSaldoTotal")
 class Cliente {
   constructor (nome, cpf, numero) {
     this.nome = nome;
@@ -80,14 +78,8 @@ class Cliente {
     this.contapoupanca = new ContaPoupanca(this.nome);
   }
   
-  saldoTotal = () => {
-    divSaldoTotal.innerHTML = `<p class="resultados">Seu saldo atual é R$${this.contacorrente.saldo + this.contapoupanca.saldo}</p>`
-    return (`Seu saldo atual é R$${this.contacorrente.saldo + this.contapoupanca.saldo}.`);
-  }
-
-  mostrarCliente = () => {
-    divCliente.innerHTML = `<p class="resultados" >Nome: ${this.nome}, CPF: ${this.cpf}, Número: ${this.numero}.</p>`
-    return (`Nome: ${this.nome}, CPF: ${this.cpf}, Número: ${this.numero}.`)
+  somarSaldoTotal = () => {
+    return this.contacorrente.saldo + this.contapoupanca.saldo;
   }
 }
 
@@ -114,16 +106,19 @@ function cadastrar(event) {
   return clientes
 }
 
+const divCliente = document.getElementById("divCliente");
 const buttonObterCliente = document.getElementById("buttonObterCliente")
 buttonObterCliente.addEventListener("click", mostrar)
 function mostrar() {
-  clientes[0].mostrarCliente()
+  divCliente.innerHTML = `<p class="resultados" >Nome: ${clientes[0].nome}, CPF: ${clientes[0].cpf}, Número: ${clientes[0].numero}.</p>`
+  console.log("mostrando cliente")
 }
-
+const divSaldoTotal = document.getElementById("divSaldoTotal")
 const buttonSaldoTotal = document.getElementById("buttonSaldoTotal")
-buttonSaldoTotal.addEventListener("click", saldo)
-function saldo() {
-  clientes[0].saldoTotal()
+buttonSaldoTotal.addEventListener("click", obterSaldoTotal)
+function obterSaldoTotal() {
+  const saldoTotal = clientes[0].somarSaldoTotal()
+  divSaldoTotal.innerHTML = `<p class="resultados">Seu saldo atual é R$${saldoTotal}</p>`
   console.log("consultando saldo")
 }
 
@@ -156,7 +151,7 @@ const buttonSacarCorrente = document.getElementById("buttonSacarCorrente")
 buttonSacarCorrente.addEventListener("click", sacar)
 function sacar () {
   let valorSaque = Number(prompt("Quanto deseja sacar?"))
-  saldoAtual = clientes[0].contacorrente.obterSaldo()
+  saldoAtual = clientes[0].contacorrente.saldo
 
   if (valorSaque > saldoAtual){
     return window.alert("Saque negado. Valor acima do saldo")
