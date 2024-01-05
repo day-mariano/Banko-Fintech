@@ -53,7 +53,7 @@ class ContaCorrente extends Conta {
   }
   //Abstração (abstraí função que faz parte da operacão)
   cobrarTaxa = () => {
-    this.remover(this.taxa)
+    return this.remover(this.taxa)
   }
 }
 // Encapsulamento
@@ -162,4 +162,12 @@ function sacar () {
   const saldoSacado = clientes[0].contacorrente.remover(valorSaque)
   divCorrente.innerHTML += `<p class="resultados">Foi removido R$${valorSaque} do seu saldo. Agora seu saldo é R$${saldoSacado}.</p>`
   console.log("sacando")
+}
+
+const buttonTaxaCorrente = document.getElementById("buttonTaxaCorrente")
+buttonTaxaCorrente.addEventListener("click", pagarTaxa)
+
+function pagarTaxa() {
+  const saldoTaxado = clientes[0].contacorrente.cobrarTaxa()
+  divCorrente.innerHTML += `<p>Você pagou sua taxa do Banko, agora seu saldo é ${saldoTaxado}</p>`
 }
