@@ -64,7 +64,7 @@ class ContaPoupanca extends Conta {
   }
 
   investir = () => {
-    this.adicionar(this.saldo * ContaPoupanca.#juros)
+    return this.adicionar(this.saldo * ContaPoupanca.#juros)
   }
 }
 
@@ -82,7 +82,7 @@ class Cliente {
     return this.contacorrente.saldo + this.contapoupanca.saldo;
   }
 }
-
+// CADASTRO CLIENTES
 const clientes = [];
 let numero = 0;
 
@@ -105,7 +105,7 @@ function cadastrar(event) {
   mainCadastro.innerHTML = "Cadastrado!" 
   return clientes
 }
-
+// DADOS CLIENTE
 const divCliente = document.getElementById("divCliente");
 const buttonObterCliente = document.getElementById("buttonObterCliente")
 buttonObterCliente.addEventListener("click", mostrar)
@@ -118,21 +118,23 @@ const buttonSaldoTotal = document.getElementById("buttonSaldoTotal")
 buttonSaldoTotal.addEventListener("click", obterSaldoTotal)
 function obterSaldoTotal() {
   const saldoTotal = clientes[0].somarSaldoTotal()
-  divSaldoTotal.innerHTML = `<p class="resultados">Seu saldo atual é R$${saldoTotal}</p>`
+  divSaldoTotal.innerHTML = `<p class="resultados">Seu saldo é R$${saldoTotal}</p>`
   console.log("consultando saldo")
 }
 
+// CONTA CORRENTE
 const divCorrente = document.getElementById("divCorrente")
 
+// Saldo Corrente
 const buttonSaldoCorrente = document.getElementById("buttonSaldoCorrente")
 buttonSaldoCorrente.addEventListener("click", obterSaldoCorrente)
 function obterSaldoCorrente() {
-  // divCorrente.innerHTML += clientes[0].contacorrente.obterSaldo()
   const saldoObtido = clientes[0].contacorrente.saldo
-  divCorrente.innerHTML += `<p class="resultados">Seu saldo atual é R$${saldoObtido}.</p>`
+  divCorrente.innerHTML += `<p class="resultados">Seu saldo é R$${saldoObtido}.</p>`
   console.log("consultando saldo da conta corrente")
 }
 
+// Depositar Corrente
 const buttonDepositarCorrente = document.getElementById("buttonDepositarCorrente")
 buttonDepositarCorrente.addEventListener("click", depositar)
 function depositar() {
@@ -141,12 +143,12 @@ function depositar() {
   if (valorDeposito <= 0) {
     return
   }
-
   const resultadoAdicionar = clientes[0].contacorrente.adicionar(valorDeposito)
   divCorrente.innerHTML += `<p class="resultados">Foi adicionado R$${valorDeposito}. Agora seu saldo é R$${resultadoAdicionar}.</p>`
-  console.log("depositando")
+  console.log("depositando na conta corrente")
 }
 
+// Sacar Corrente
 const buttonSacarCorrente = document.getElementById("buttonSacarCorrente")
 buttonSacarCorrente.addEventListener("click", sacar)
 function sacar () {
@@ -158,16 +160,66 @@ function sacar () {
   } else if (valorSaque <= 0) {
     return
   }
-
   const saldoSacado = clientes[0].contacorrente.remover(valorSaque)
   divCorrente.innerHTML += `<p class="resultados">Foi removido R$${valorSaque} do seu saldo. Agora seu saldo é R$${saldoSacado}.</p>`
-  console.log("sacando")
+  console.log("sacando da conta corrente")
 }
 
+// Pagar taxa
 const buttonTaxaCorrente = document.getElementById("buttonTaxaCorrente")
 buttonTaxaCorrente.addEventListener("click", pagarTaxa)
-
 function pagarTaxa() {
   const saldoTaxado = clientes[0].contacorrente.cobrarTaxa()
   divCorrente.innerHTML += `<p class="resultados">Você pagou sua taxa ao Banko, agora seu saldo é ${saldoTaxado}</p>`
 }
+// CONTA POUPANÇA
+const divPoupanca = document.getElementById("divPoupanca")
+
+// Saldo Poupança
+const buttonSaldoPoupanca = document.getElementById("buttonSaldoPoupanca")
+buttonSaldoPoupanca.addEventListener("click", obterSaldoPoupanca)
+function obterSaldoPoupanca() {
+  const saldoObtido = clientes[0].contapoupanca.saldo
+  divPoupanca.innerHTML += `<p class="resultados">Seu saldo atual é R$${saldoObtido}.</p>`
+  console.log("consultando saldo da conta poupança")
+}
+
+// Depositar Poupança
+const buttonDepositarPoupanca = document.getElementById("buttonDepositarPoupanca")
+buttonDepositarPoupanca.addEventListener("click", depositaPoupanca)
+function depositaPoupanca() {
+  let valorDeposito = Number(prompt("Quanto deseja depositar?"))
+
+  if (valorDeposito <= 0) {
+    return
+  }
+  const resultadoAdicionar = clientes[0].contapoupanca.adicionar(valorDeposito)
+  divPoupanca.innerHTML += `<p class="resultados">Foi adicionado R$${valorDeposito}. Agora seu saldo é R$${resultadoAdicionar}.</p>`
+  console.log("depositando na conta poupança")
+}
+
+// Sacar Poupança
+const buttonSacarPoupanca = document.getElementById("buttonSacarPoupanca")
+buttonSacarPoupanca.addEventListener("click", sacarPoupana)
+function sacarPoupana () {
+  let valorSaque = Number(prompt("Quanto deseja sacar?"))
+  saldoAtual = clientes[0].contapoupanca.saldo
+
+  if (valorSaque > saldoAtual){
+    return window.alert("Saque negado. Valor acima do saldo")
+  } else if (valorSaque <= 0) {
+    return
+  }
+  const saldoSacado = clientes[0].contapoupanca.remover(valorSaque)
+  divPoupanca.innerHTML += `<p class="resultados">Foi removido R$${valorSaque} do seu saldo. Agora seu saldo é R$${saldoSacado}.</p>`
+  console.log("sacando da conta poupança")
+}
+
+// Investir Poupaça
+ const buttonInvestirPoupanca = document.getElementById("buttonInvestirPoupanca")
+ buttonInvestirPoupanca.addEventListener("click", investirPoupanca)
+
+ function investirPoupanca () {
+  saldoInvestido = clientes[0].contapoupanca.investir()
+  divPoupanca.innerHTML += `<p class="resultados"> Seu saldo foi investido e rendeu com nossos juros. Adora seu saldo é R$${saldoInvestido}</p>`
+ }
