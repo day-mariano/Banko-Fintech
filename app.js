@@ -169,5 +169,5 @@ buttonTaxaCorrente.addEventListener("click", pagarTaxa)
 
 function pagarTaxa() {
   const saldoTaxado = clientes[0].contacorrente.cobrarTaxa()
-  divCorrente.innerHTML += `<p>Você pagou sua taxa do Banko, agora seu saldo é ${saldoTaxado}</p>`
+  divCorrente.innerHTML += `<p class="resultados">Você pagou sua taxa ao Banko, agora seu saldo é ${saldoTaxado}</p>`
 }
