@@ -41,32 +41,42 @@
     </input>
     </form>
   </div>
-  <div class="divsContas">
-    <h3>Cliente</h3>
-    <p>Acesse os serviços de sua conta</p>
-    <button class="buttonForm" id="buttonObterCliente">Ver dados do cliente</button>
-    <button class="buttonForm" id="buttonSaldoTotal">Ver saldo total</button>
-    <div id="divCliente"></div>
-    <div id="divSaldoTotal"></div>
-  </div>
-  <div class="divsContas">
-    <h3>Conta Corrente</h3>
-    <p>Serviços de sua conta Corrente</p>
-    <button class="buttonForm" id="buttonSaldoCorrente">Obter Saldo</button>
-    <button class="buttonForm" id="buttonDepositarCorrente">Depositar</button>
-    <button class="buttonForm" id="buttonSacarCorrente">Sacar</button>
-    <button class="buttonForm" id="buttonTaxaCorrente">Pagar taxa</button>
-    <div id="divCorrente"></div>
-    <div id="divSaldoCorrente"></div>
-  </div>
-  <div class="divsContas" >
-    <h3>Conta Poupança</h3>
-    <p>Serviços de sua conta Poupança</p>
-    <button class="buttonForm" id="buttonSaldoPoupanca">Obter Saldo</button>
-    <button class="buttonForm" id="buttonDepositarPoupanca">Depositar</button>
-    <button class="buttonForm" id="buttonSacarPoupanca">Sacar</button>
-    <button class="buttonForm" id="buttonInvestirPoupanca">Investir</button>
-    <div id="divPoupanca"></div>
+  <div id="contas">
+    <div class="divsContas">
+      <h3>Cliente</h3>
+      <p>Acesse os serviços de sua conta</p>
+      <div class="buttonsWrapper">
+        <button class="buttonForm" id="buttonObterCliente">Ver dados do cliente</button>
+        <button class="buttonForm" id="buttonSaldoTotal">Ver saldo total</button>
+      </div>
+      <div id="divCliente"></div>
+      <div id="divSaldoTotal"></div>
+    </div>
+    <div id="correnteEpoupanca">
+      <div class="divsContas">
+        <h3>Conta Corrente</h3>
+        <p>Serviços de sua conta Corrente</p>
+        <div class="buttonsWrapper">
+          <button class="buttonForm" id="buttonSaldoCorrente">Obter Saldo</button>
+          <button class="buttonForm" id="buttonDepositarCorrente">Depositar</button>
+          <button class="buttonForm" id="buttonSacarCorrente">Sacar</button>
+          <button class="buttonForm" id="buttonTaxaCorrente">Pagar taxa</button>
+        </div>
+        <div id="divCorrente"></div>
+        <div id="divSaldoCorrente"></div>
+      </div>
+      <div class="divsContas" >
+        <h3>Conta Poupança</h3>
+        <p>Serviços de sua conta Poupança</p>
+        <div class="buttonsWrapper">
+          <button class="buttonForm" id="buttonSaldoPoupanca">Obter Saldo</button>
+          <button class="buttonForm" id="buttonDepositarPoupanca">Depositar</button>
+          <button class="buttonForm" id="buttonSacarPoupanca">Sacar</button>
+          <button class="buttonForm" id="buttonInvestirPoupanca">Investir</button>
+        </div>
+        <div id="divPoupanca"></div>
+      </div>
+    </div>
   </div>
 </div>
 

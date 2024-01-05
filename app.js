@@ -96,13 +96,15 @@ function cadastrar(event) {
   const nome = document.getElementById("name");
   const cpf = document.getElementById("cpf");
   numero++
-
+  
   let cliente1 = new Cliente(nome.value, cpf.value, numero)
   clientes.push(cliente1);
   console.log(cliente1);
   nome.value = ""
   cpf.value = ""
-  mainCadastro.innerHTML = "Cadastrado!" 
+  const contas = document.getElementById("contas")
+  contas.style.visibility = "visible"
+  formCadastro.innerHTML = "Cadastrado!" 
   return clientes
 }
 // DADOS CLIENTE
