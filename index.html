@@ -9,76 +9,86 @@
   <title>Banko - Cadastro</title>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="banco.png">
-      <h1>Banko</h1>
-    </div>
-    <nav>
-      <a href="index.html">Início</a>
-      <a href="index.html">Sobre</a>
-      <a href="index.html">Contato</a>
-    </nav>
-  </header>
-  <section class="hero">
-    <div class="divHero">
-      <h2>Banko Fintech ✨</h2>
-      <p> Desbloqueie seu potencial financeiro com facilidade e inovação. Uma experiência bancária que se adapta a você. </p>
-    </div>
-    <img src="Crypto portfolio-amico (1).svg" id="fotoHero">
-  </section>
-  <div class="main" id="mainCadastro">
-    <h2>Cadastro</h2>
-    <p>Cadastre-se agora e tenha uma experiência bancária brilhante</p>
-    <form id="formCadastro">
-      <label for="name">Nome
-        <input type="text" id="name" name="name" placeholder="Seu nome" required>
-      </label>
-      <label for="cpf">CPF
-        <input type="number" id="cpf" name="cpf" placeholder="Seu CPF" required>
-      </label>
-      <input type="submit" id="buttonCadastrar" value="Cadastrar" class="buttonForm">
-    </input>
-    </form>
-  </div>
-  <div id="contas">
-    <div class="divsContas">
-      <h3>Cliente</h3>
-      <p>Acesse os serviços de sua conta</p>
-      <div class="buttonsWrapper">
-        <button class="buttonForm" id="buttonObterCliente">Ver dados do cliente</button>
-        <button class="buttonForm" id="buttonSaldoTotal">Ver saldo total</button>
+  <div id="content">
+    <header>
+      <div class="logo">
+        <img src="banco.png">
+        <h1>Banko</h1>
       </div>
-      <div id="divCliente"></div>
-      <div id="divSaldoTotal"></div>
+      <nav>
+        <a href="index.html">Início</a>
+        <a href="index.html">Sobre</a>
+        <a href="index.html">Contato</a>
+      </nav>
+    </header>
+    <section id="hero">
+      <div class="divHero">
+        <h2>Banko Fintech ✨</h2>
+        <p> Desbloqueie seu potencial financeiro com facilidade e inovação. Uma experiência bancária que se adapta a você. </p>
+      </div>
+      <img src="Crypto portfolio-amico (1).svg" id="fotoHero">
+    </section>
+    <div class="main" id="mainCadastro">
+      <h2>Cadastro</h2>
+      <p>Cadastre-se agora e tenha uma experiência bancária brilhante</p>
+      <form id="formCadastro">
+        <label for="name">Nome
+          <input type="text" id="name" name="name" placeholder="Seu nome" required>
+        </label>
+        <label for="cpf">CPF
+          <input type="number" id="cpf" name="cpf" placeholder="Seu CPF" required>
+        </label>
+        <input type="submit" id="buttonCadastrar" value="Cadastrar" class="buttonForm">
+      </input>
+      </form>
     </div>
-    <div id="correnteEpoupanca">
+    <div id="contas">
       <div class="divsContas">
-        <h3>Conta Corrente</h3>
-        <p>Serviços de sua conta Corrente</p>
-        <div class="buttonsWrapper">
-          <button class="buttonForm" id="buttonSaldoCorrente">Obter Saldo</button>
-          <button class="buttonForm" id="buttonDepositarCorrente">Depositar</button>
-          <button class="buttonForm" id="buttonSacarCorrente">Sacar</button>
-          <button class="buttonForm" id="buttonTaxaCorrente">Pagar taxa</button>
+        <div class="titleWrapper">
+          <img src="perfil.png">
+          <h3>Cliente</h3>
         </div>
-        <div id="divCorrente"></div>
-        <div id="divSaldoCorrente"></div>
+        <p>Acesse os serviços de sua conta</p>
+        <div class="buttonsWrapper">
+          <button class="buttonForm" id="buttonObterCliente">Ver dados do cliente</button>
+          <button class="buttonForm" id="buttonSaldoTotal">Ver saldo total</button>
+        </div>
+        <div id="divCliente"></div>
+        <div id="divSaldoTotal"></div>
       </div>
-      <div class="divsContas" >
-        <h3>Conta Poupança</h3>
-        <p>Serviços de sua conta Poupança</p>
-        <div class="buttonsWrapper">
-          <button class="buttonForm" id="buttonSaldoPoupanca">Obter Saldo</button>
-          <button class="buttonForm" id="buttonDepositarPoupanca">Depositar</button>
-          <button class="buttonForm" id="buttonSacarPoupanca">Sacar</button>
-          <button class="buttonForm" id="buttonInvestirPoupanca">Investir</button>
+      <div id="correnteEpoupanca">
+        <div class="divsContas">
+          <div class="titleWrapper">
+            <img src="carteira.png">
+            <h3>Conta Corrente</h3>
+          </div>
+          <p>Serviços de sua conta Corrente</p>
+          <div class="buttonsWrapper">
+            <button class="buttonForm" id="buttonSaldoCorrente">Obter Saldo</button>
+            <button class="buttonForm" id="buttonDepositarCorrente">Depositar</button>
+            <button class="buttonForm" id="buttonSacarCorrente">Sacar</button>
+            <button class="buttonForm" id="buttonTaxaCorrente">Pagar taxa</button>
+          </div>
+          <div id="divCorrente"></div>
         </div>
-        <div id="divPoupanca"></div>
+        <div class="divsContas" >
+          <div class="titleWrapper">
+            <img src="cofrinho.png">
+            <h3>Conta Poupança</h3>
+          </div>
+          <p>Serviços de sua conta Poupança</p>
+          <div class="buttonsWrapper">
+            <button class="buttonForm" id="buttonSaldoPoupanca">Obter Saldo</button>
+            <button class="buttonForm" id="buttonDepositarPoupanca">Depositar</button>
+            <button class="buttonForm" id="buttonSacarPoupanca">Sacar</button>
+            <button class="buttonForm" id="buttonInvestirPoupanca">Investir</button>
+          </div>
+          <div id="divPoupanca"></div>
+        </div>
       </div>
     </div>
+    </div>
   </div>
-</div>
 
 <!-- 
   <h3>A partir de agora conferir no console as funcionalidades!</h3>

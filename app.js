@@ -86,6 +86,7 @@ class Cliente {
 const clientes = [];
 let numero = 0;
 
+const hero = document.getElementById("hero")
 var mainCadastro = document.getElementById("mainCadastro")
 const formCadastro = document.getElementById("formCadastro")
 formCadastro.addEventListener("submit", cadastrar)
@@ -104,7 +105,8 @@ function cadastrar(event) {
   cpf.value = ""
   const contas = document.getElementById("contas")
   contas.style.visibility = "visible"
-  formCadastro.innerHTML = "Cadastrado!" 
+  hero.style.display = "none"
+  mainCadastro.style.display = "none"
   return clientes
 }
 // DADOS CLIENTE
@@ -223,5 +225,5 @@ function sacarPoupana () {
 
  function investirPoupanca () {
   saldoInvestido = clientes[0].contapoupanca.investir()
-  divPoupanca.innerHTML += `<p class="resultados"> Seu saldo foi investido e rendeu com nossos juros. Adora seu saldo é R$${saldoInvestido}</p>`
+  divPoupanca.innerHTML += `<p class="resultados"> Seu saldo foi investido. Agora seu saldo é R$${saldoInvestido}</p>`
  }

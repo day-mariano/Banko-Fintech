@@ -2,12 +2,19 @@ body {
   background-color: #D1D1FD;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: 500;
+  font-size: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   height: 100vh;
   margin: 0;
+}
+#content {
+  width: 100%;
+  display: flex;
+  Flex-direction: column;
+  align-items: center;
 }
 
 header {
@@ -24,7 +31,7 @@ header {
   align-items: center;
 }
 .logo img {
-  width: 50px;
+  width: 40px;
   margin: 8px;
 }
 nav {
@@ -32,16 +39,13 @@ nav {
 }
 a{
   text-decoration: none;
-  color: rgb(21, 11, 100);
-  background-color: #D1D1FD;
+  color: #4C5796;
   margin: 8px;
-  padding: 8px;
-  border-radius: 8px;
   font-weight: 600;
 }
 a:hover {
-  color:  #D1D1FD;
-  background-color: rgb(21, 11, 100);
+  color: rgb(21, 11, 100);
+  /* background-color: #D1D1FD; */
   
 }
 h1{
@@ -49,7 +53,7 @@ h1{
   font-size: 20px;
 }
 
-.hero {
+#hero {
   padding: 0 2rem;
   display: flex;
   width: 100%;
@@ -61,26 +65,24 @@ h1{
 .divHero {
   max-width: 500px;
 }
-.hero h2 {
-  font-size: 36px;
+#hero h2 {
+  font-size: 30px;
   color: #D1D1FD;
   max-width: 500px;
   font-size: 28px;
 }
-.hero p {
+#hero p {
   color: #4C5796;
-  font-size: 24px;
+  font-size: 20px;
 }
 #fotoHero {
   width: 300px;
+  margin: 1rem;
 }
 
-code {
-  background-color: ;
-}
 .main {
   color: rgb(21, 11, 100);
-  margin: 1rem auto auto auto;
+  margin: 1rem;
   max-width: 900px;
   display: flex;
   flex-direction: column;
@@ -88,6 +90,10 @@ code {
 }
 .main h2 {
   margin-bottom: 0;
+}
+.main p {
+  display: flex;
+  justify-content: center;
 }
 
 form {
@@ -127,7 +133,7 @@ input::placeholder{
 }
 
 .buttonForm {
-  font-size: 16px;
+  font-size: 14px;
   border-width: 0;
   background-color: rgb(21, 11, 100);
   color: #D1D1FD;
@@ -152,10 +158,11 @@ form p {
 
 #contas {
   visibility: hidden;
+  margin-top: 1rem;
 }
 
 .divsContas {
-  font-size: 20px;
+  font-size: 16px;
   margin: 1rem;
   border-radius: 12px;
   display: flex;
@@ -175,42 +182,68 @@ form p {
   flex-direction: row;
 }
 #correnteEpoupanca div {
-  width: 500px;
+  max-width: 427px;
 }
 .buttonsWrapper {
   display: flex;
 }
+.titleWrapper {
+  display: flex;
+  align-items: center;
+}
+.titleWrapper img {
+  width: 30px;
+  margin-right: 1rem;
+}
 
+.titleWrapper h3 {
+  font-size: 16px;
+}
+
+#divCorrente, #divPoupanca {
+  display: flex; 
+  flex-direction: column-reverse;
+}
 .resultados {
   background-color: white;
   padding: 8px;
   border-radius: 12px;
+  margin: 10px;
 
 }
- 
-code {
-  color: rgb(21, 11, 100);
-  font-size: 14px;
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.534);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
+
 footer {
+  display: flex;
   background: rgb(13, 6, 65);
   width: 100%;
-  margin-top: 1rem;
+  margin-top: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 12px;
   color: white;
+}
+@media (max-width: 800px) {
+  #correnteEpoupanca {
+    flex-direction: column;
+  }
+}
+@media (max-width: 425px) {
+  .buttonForm {
+    /* flex-direction: column; */
+    font-size: 12px;
+    /* padding: 6px; */
+  }
+  #hero {
+    flex-direction: column;
+  }
+  #hero h2 {
+    font-size: 20px;
+  }
+  #hero p {
+    font-size: 16px;
+  }
+  #hero img {
+    width: 100px;
+  }
 }
