@@ -1,50 +1,24 @@
 # Banko - Fintech
-Repositório destinado a projeto de banco do módulo 3 da Formação de Front end da Ada Tech. 
+Repositório destinado a projeto de banco do módulo 3 da Formação de Front end da Ada Tech. Esta aplicação permite ao usuário criar cadastro, e fazer operações nas sua Conta Corrente e Conta Poupança.
 
-
-## Funciolidades no console:
-Acessar saldo total usando o método saldoTotal()
-
-`clientes[0].saldoTotal()`
-
-Acessar saldo da conta corrente
-
-`clientes[0].contaCorrente.obterSaldo()`
-
-Depositar na conta corrente, passando um valor
-
-`clientes[0].contaCorrente.adicionar(100)   //Fulano, foi adicionado R$100. Agora seu saldo é R$100.`
-
-Sacar na conta corrente, , passando um valor
-
-`clientes[0].contacorrente.remover(20)`
-
-Pagar taxa do banco com a conta corrente
-
-`clientes[0].contacorrente.cobrarTaxa()`
-
-Acessar saldo da conta poupança
-
-`clientes[0].contapoupanca.obterSaldo()`
-
-Depositar na conta corrente, passando um valor
-
-`clientes[0].contapoupanca.adicionar(100)`
-
-Sacar na conta corrente, passando um valor
-
-`clientes[0].contapoupanca.remover(10)`
-
-Investir saldo da conta poupança
-
-`clientes[0].contapoupanca.investir()`
+## Funciolidades:
+- Acessar saldo total
+- Acessar saldo da conta corrente
+- Depositar na conta corrente, passando um valor
+- Sacar na conta corrente, passando um valor
+- Pagar taxa do banco com a conta corrente
+- Acessar saldo da conta poupança
+- Depositar na conta corrente, passando um valor
+- Sacar na conta corrente, passando um valor
+- Investir saldo da conta poupança
 
 ## Tecnologias usadas:
 - HTML
 - CSS
 - JavaScript
+- Vercel
 
 ## Deploy:
 Veja no seu navegador: [Banko](https://banko-fintech.vercel.app/)
 
-![Preview](preview1.png)
+![Preview](banko.png)
